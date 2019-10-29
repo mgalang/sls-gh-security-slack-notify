@@ -1,6 +1,7 @@
 # Simple serverless app for notifying security issue github pull requests to slack
 
-service: serverless-github-security-issue-slack-notify
+#service: serverless-github-security-issue-slack-notify
+service: sls-gh-security-issue-slack-notify
 
 provider:
   name: aws
