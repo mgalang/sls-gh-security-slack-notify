@@ -1,6 +1,6 @@
-# Slack Github PR notifier
+# Slack Github Open Security issue notifier
 
-A simple serverless application for notifying open pull request to project channels in slack.
+A simple serverless application for notifying open issues tagged with "security" to project channels in slack.
 
 Notifications are sent through cron events (see `serverless.yml`)
 
