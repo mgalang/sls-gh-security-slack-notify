@@ -1,0 +1,24 @@
+# Simple serverless app for notifying security issue github pull requests to slack
+
+service: serverless-github-security-issue-slack-notify
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-north-1
+  environment:
+    GITHUB_TOKEN: ${ssm:githubToken}
+    GITHUB_REPOSITORIES: ${ssm:githubRepositories}
+    SLACK_WEBHOOK: ${ssm:slackWebhook}
+
+plugins:
+  - serverless-offline
+
+functions:
+  githubPrNotify:
+    handler: handler.githubPrNotify
+    events:
+      - schedule:
+        # 7am
+        rate: cron (0 7 * * ? *)
+        enabled: true
